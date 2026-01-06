@@ -1,0 +1,5 @@
+{
+  "name": "AI RPG",
+  "description": "A RAG-backed, text-based RPG with high fantasy lore, distinct mechanics, and immersive storytelling powered by Gemini.",
+  "requestFramePermissions": []
+}

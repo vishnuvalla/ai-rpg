@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aetheria: Terminal Uplink</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'term-bg': '#1d2021',      // Deep Charcoal
+              'term-text': '#ebdbb2',    // Bone White
+              'term-main': '#d79921',    // Retro Amber/Gold
+              'term-highlight': '#b8bb26', // Muted Sage Green
+              'term-cyan': '#83a598',    // Muted Blue/Cyan
+              'term-red': '#fb4934',     // Soft Red
+              'term-gray': '#928374',    // Stone Grey
+              'term-dark': '#282828',    // Lighter background for cards
+            },
+            fontFamily: {
+              mono: ['"Space Mono"', 'monospace'],
+              sans: ['"Space Mono"', 'monospace'],
+              serif: ['"Space Mono"', 'monospace'],
+            },
+            typography: (theme) => ({
+              DEFAULT: {
+                css: {
+                  color: theme('colors.term-text'),
+                  fontFamily: '"Space Mono", monospace',
+                  '--tw-prose-body': theme('colors.term-text'),
+                  '--tw-prose-headings': theme('colors.term-main'),
+                  '--tw-prose-links': theme('colors.term-cyan'),
+                  '--tw-prose-bold': theme('colors.term-main'),
+                  '--tw-prose-counters': theme('colors.term-highlight'),
+                  '--tw-prose-bullets': theme('colors.term-gray'),
+                  '--tw-prose-hr': theme('colors.term-gray'),
+                  '--tw-prose-quotes': theme('colors.term-gray'),
+                  '--tw-prose-code': theme('colors.term-highlight'),
+                  maxWidth: 'none',
+                  fontSize: '1rem',
+                  lineHeight: '1.7',
+                  h1: { fontWeight: '700', textTransform: 'uppercase', borderBottom: '1px solid #928374' },
+                  h2: { fontWeight: '700', textTransform: 'uppercase', color: theme('colors.term-cyan') },
+                  h3: { fontWeight: '700', textTransform: 'uppercase', color: theme('colors.term-main') },
+                  strong: { color: theme('colors.term-main'), fontWeight: '700' },
+                  blockquote: { borderLeftColor: theme('colors.term-gray'), fontStyle: 'italic' },
+                },
+              },
+            }),
+          },
+        },
+        plugins: [
+          function({ addUtilities }) {
+            addUtilities({
+              '.scanlines': {
+                background: 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.05))',
+                backgroundSize: '100% 4px',
+                pointerEvents: 'none',
+                position: 'absolute',
+                top: '0', left: '0', right: '0', bottom: '0',
+                zIndex: '50',
+                opacity: '0.4',
+              },
+              '.text-shadow': {
+                textShadow: '0 0 2px rgba(215, 153, 33, 0.3)',
+              }
+            })
+          }
+        ]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1d2021;
+            color: #ebdbb2;
+            font-family: "Space Mono", monospace;
+            font-size: 1rem;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; background: #1d2021; }
+        ::-webkit-scrollbar-thumb { background: #504945; border: 1px solid #1d2021; }
+        ::-webkit-scrollbar-thumb:hover { background: #d79921; }
+        
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .animate-blink-cursor { animation: blink 1s step-end infinite; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-markdown": "https://esm.sh/react-markdown@9.0.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
